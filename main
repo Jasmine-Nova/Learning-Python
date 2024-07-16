@@ -17,12 +17,12 @@ operators = [add, subtract, multiply, divide]
 #Function to ask if the user wants to calculate
 def ask_calculate(prompt):
     while True:
-        x = input(f"Would you like to calculate{prompt} (Y/N): ").upper()
+        x = input(f"Would you like to calculate {prompt} (Y/N): ").upper()
         if x in ["N", "NO"]:
             print("Goodbye")
             exit()
         elif x in ["Y", "YES"]:
-            return
+            break
         else:
             print("Input Error: not y or n")
 
@@ -37,10 +37,10 @@ def get_number(order):
 #Function to get a number from the user
 def get_operator():
     print("Select an operation:")
-    print("1.Add")
-    print("2.Subtract")
-    print("3.Multiply")
-    print("4.Divide")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
     while True:
         x = input("Enter choice (1/2/3/4): ")
         if x not in ["1", "2", "3", "4"]:
@@ -67,4 +67,4 @@ while True:
     operator = get_operator()
     y = get_number("second")
     calculate(x, y, operator)
-    ask_calculate(" again?")
+    ask_calculate("again?")

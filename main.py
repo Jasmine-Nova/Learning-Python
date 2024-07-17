@@ -35,9 +35,9 @@ def get_operator():
         else:
             print("Input Error: Please enter '+', '-', '*', or '/'.")
 
-#Function to calculate, check for division by 0, and print result
+#Function to calculate and print result
 def calculate(x, y, operator):
-    if not (operator == "/" and y == 0):
+    if not (operator == "/" and y == 0): #check it is not division by 0
         print(f"\n{x} {operator} {y} = {eval(f"{x} {operator} {y}")}") #call result
     else:   
         print("Input Error: Division by zero")

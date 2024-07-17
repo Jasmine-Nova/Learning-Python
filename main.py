@@ -25,7 +25,7 @@ def get_number(order):
         except ValueError:
             print("Input Error: Please enter a number.")
 
-#Function to get a number from the user
+#Function to get an operator from the user
 def get_operator():
     operator = ("+", "-", "*", "/") #define a tuple of all operators
     while True:
@@ -51,7 +51,7 @@ ask_calculate("?")
 #Performing calculation
 while True:
     try:
-        x = get_number("first")          
+        x = get_number("first")
         operator = get_operator()
         y = get_number("second")
         calculate(x, y, operator)

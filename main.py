@@ -6,7 +6,7 @@
 def ask_calculate(prompt):
     while True:
         try: 
-            x = input(f"Would you like to calculate{prompt} (Y/N) -> ").strip().upper() # strip before making it upper
+            x = input(f"\nWould you like to calculate{prompt} (Y/N) -> ").strip().upper() # strip before making it upper
         except KeyboardInterrupt: #quit if someone wants to ctrl c 
             exit()
         if x in ["N", "NO"]: #maybe try to make things lower, that's conventional
@@ -15,7 +15,7 @@ def ask_calculate(prompt):
         elif x in ["Y", "YES"]:
             break
         else:
-            print("Input Error: Please enter 'Y' or 'N'.\n")
+            print("Input Error: Please enter 'Y' or 'N'.")
 
 #Function to get a number from the user
 def get_number(order):
@@ -37,15 +37,15 @@ def get_operator():
 
 #Function to calculate, check for division by 0, and print result
 def calculate(x, y, operator):
-    if (operator == "/" and y == 0):
+    if not (operator == "/" and y == 0):
+        print(f"\n{x} {operator} {y} = {eval(f"{x} {operator} {y}")}") #call result
+    else:   
         print("Input Error: Division by zero")
-        return
-    result = eval(f"{x} {operator} {y}")
-    print(f"\n{x} {operator} {y} = {result}\n") #call result
+
 
 
 #Introducing program and asking if they want to calculate
-print("\n\nThis program performs addition, subtraction, multiplication, and division.\n\n")
+print("\n\nThis program performs addition, subtraction, multiplication, and division.\n")
 ask_calculate("?")
 
 #Performing calculation

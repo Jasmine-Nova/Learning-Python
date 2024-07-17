@@ -1,21 +1,20 @@
-#Simple python script to perform simple calculations
+# Arithmetic calculator in Python
 # Created by Jasmine
-
 
 #Function to ask if the user wants to calculate
 def ask_calculate(prompt):
     while True:
         try: 
-            x = input(f"Would you like to calculate {prompt} (Y/N) -> ").strip().upper() # strip before making it upper
-        except KeyboardInterrupt: #just quit if someone wants to ctrl c 
+            x = input(f"Would you like to calculate{prompt} (Y/N) -> ").strip().upper() # strip before making it upper
+        except KeyboardInterrupt: #quit if someone wants to ctrl c 
             exit()
         if x in ["N", "NO"]: #maybe try to make things lower, that's conventional
-            print("＊*•̩̩͙✩•̩̩͙*˚　Bye Bye　˚*•̩̩͙✩•̩̩͙*˚＊")
+            print("＊*•̩̩͙✩•̩̩͙*˚　Bye  Bye　˚*•̩̩͙✩•̩̩͙*˚＊\n")
             exit()
         elif x in ["Y", "YES"]:
             break
         else:
-            print("Input Error: not y or n")
+            print("Input Error: Please enter 'Y' or 'N'.\n")
 
 #Function to get a number from the user
 def get_number(order):
@@ -23,7 +22,7 @@ def get_number(order):
         try:
             return float(input(f"Enter {order} number -> "))
         except ValueError:
-            print("Input Error: not a number.\n")
+            print("Input Error: Please enter a number.")
 
 #Function to get a number from the user
 def get_operator():
@@ -31,20 +30,18 @@ def get_operator():
     while True:
         x = input("Enter operator (+, -, *. /) -> ").strip() #always strip 
         if x not in operator:
-            print("Operator invalid.\n")
+            print("Input Error: Please enter '+', '-', '*', or '/'.")
             continue
         else:
-            return x #just return the operator 
-
-def result(x, y, operator):
-    return eval(f"{x} {operator} {y}") #no need to use if else or function , eval is easier
+            return x #just return the operator
 
 #Function to calculate, check for division by 0, and print result
 def calculate(x, y, operator):
     if (operator == "/" and y == 0):
         print("Input Error: Division by zero")
         return
-    print(f"\n{x} {operator} {y} = {result(x, y, operator)}\n\n") #call result
+    result = eval(f"{x} {operator} {y}")
+    print(f"\n{x} {operator} {y} = {result}\n") #call result
 
 
 #Introducing program and asking if they want to calculate
@@ -58,9 +55,6 @@ while True:
         operator = get_operator()
         y = get_number("second")
         calculate(x, y, operator)
-        ask_calculate("again?")
-    except KeyboardInterrupt: # ctrl c just exits the program
+        ask_calculate(" again?")
+    except KeyboardInterrupt: # ctrl c exits the program
         exit()
-# added some new lines to make things a bit cleaner, made it little easier, cleaning all the complex things
-# Thanks, have a nice day.
-

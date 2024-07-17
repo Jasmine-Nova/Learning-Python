@@ -1,6 +1,7 @@
 # Arithmetic calculator in Python
 # Created by Jasmine
 
+
 #Function to ask if the user wants to calculate
 def ask_calculate(prompt):
     while True:
@@ -9,7 +10,7 @@ def ask_calculate(prompt):
         except KeyboardInterrupt: #quit if someone wants to ctrl c 
             exit()
         if x in ["N", "NO"]: #maybe try to make things lower, that's conventional
-            print("＊*•̩̩͙✩•̩̩͙*˚　Bye  Bye　˚*•̩̩͙✩•̩̩͙*˚＊\n")
+            print("＊*•̩̩͙✩•̩̩͙*˚　Bye Bye　˚*•̩̩͙✩•̩̩͙*˚＊\n")
             exit()
         elif x in ["Y", "YES"]:
             break
@@ -29,11 +30,10 @@ def get_operator():
     operator = ("+", "-", "*", "/") #define a tuple of all operators
     while True:
         x = input("Enter operator (+, -, *. /) -> ").strip() #always strip 
-        if x not in operator:
-            print("Input Error: Please enter '+', '-', '*', or '/'.")
-            continue
-        else:
+        if x in operator:
             return x #just return the operator
+        else:
+            print("Input Error: Please enter '+', '-', '*', or '/'.")
 
 #Function to calculate, check for division by 0, and print result
 def calculate(x, y, operator):
